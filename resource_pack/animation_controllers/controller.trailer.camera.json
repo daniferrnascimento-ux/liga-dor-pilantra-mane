@@ -1,0 +1,15 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.trailer.camera": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [
+            "trailer:swoop"
+          ]
+        }
+      }
+    }
+  }
+}
