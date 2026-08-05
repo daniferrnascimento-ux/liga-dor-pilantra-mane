@@ -1,29 +1,138 @@
-# Trailer Animations Pack — Scaffold
+# 🎬 Fresh Movies - Bedrock Edition
 
-Este repositório agora contém um scaffold para um Bedrock Add-on com animations e textures inspiradas no trailer do Minecraft.
+Pack de animações cinematográficas funcional para Minecraft Bedrock. Inspirado em Fresh Movies com foco **exclusivo no Player** (v2).
 
-O que eu adicionei:
-- behavior_pack/manifest.json (já comitado previamente)
-- resource_pack/manifest.json
-- resource_pack/animations/trailer_swoop.animation.json
-- resource_pack/animation_controllers/controller.trailer.camera.json
-- resource_pack/textures/README_ADD_TEXTURES.txt (instruções para adicionar suas PNGs)
+## 📋 Características
 
-Como prosseguir (resumido):
-1) Se você quer adicionar a textura que mostrou (lava/magma) e autorizou, faça upload do PNG como:
-   resource_pack/textures/lava_magma.png
+### Animações do Player Implementadas:
+- ✅ **Idle** - Animação de repouso com movimento suave de respiração
+- ✅ **Walking** - Caminhada fluida com movimento de braços e pernas
+- ✅ **Running** - Corrida dinâmica com postura inclinada
+- ✅ **Jumping** - Salto com compressão e extensão do corpo
+- ✅ **Falling** - Queda com braços estendidos para equilíbrio
+- ✅ **Swimming** - Nado em água com movimentos de braços
+- ✅ **Sneaking** - Agachamento furtivo
+- ✅ **Gliding** - Planar com asas de Elytra
 
-2) Substitua os UUIDs nos manifests por UUIDs próprios, se preferir. Ambos os manifests (behavior + resource) precisam ter UUIDs distintos.
-   - Use um gerador de UUID v4.
+### Estados de Controle:
+- Transições automáticas entre estados
+- Sistema de blending para suavidade
+- Queries de movimento e ações do player
 
-3) Para empacotar: compacte as pastas `resource_pack/` e `behavior_pack/` juntas em um único ZIP e renomeie para `meu_pack.mcpack`.
+## 📁 Estrutura do Projeto
 
-4) Instale no Bedrock: abra o `.mcpack` no dispositivo ou coloque as pastas nas pastas `com.mojang/resource_packs/` e `com.mojang/behavior_packs/` do seu dispositivo.
+```
+liga-dor-pilantra-mane/
+├── resource_pack/
+│   ├── manifest.json
+│   ├── animations/
+│   │   └── player.animation.json (8 animações)
+│   └── animation_controllers/
+│       └── player.animation_controllers.json
+├── behavior_pack/
+│   ├── manifest.json
+│   └── entities/
+│       └── player.entity.json
+├── create_mcpack.sh
+└── README.md
+```
 
-5) Teste: aplique o `animation_controller` em uma entidade custom ou use um behavior que chame a animação. Exemplo mínimo de uso no entity JSON deve referenciar `controller.trailer.camera`.
+## 🎮 Como Usar
 
-Avisos legais rápidos:
-- Você confirmou autorização para usar a imagem fornecida; eu não movi nem enviei a imagem automativamente. Faça upload manualmente se quiser que ela entre no repo.
-- Não incluirei assets oficiais do trailer sem permissão.
+### Opção 1: Instalação Manual
+1. Copie as pastas `resource_pack` e `behavior_pack` para seu dispositivo
+2. Abra Minecraft Bedrock
+3. Vá para **Configurações > Pacotes Globais**
+4. Selecione ambos os packs e ative-os
+5. Crie um novo mundo com os packs ativados
 
-Se quiser que eu faça upload da imagem que você enviou aqui, confirme explicitamente e anexe o arquivo PNG (ou diga que me autoriza a copiar a imagem já postada).
+### Opção 2: Usar o Script (Recomendado)
+```bash
+chmod +x create_mcpack.sh
+./create_mcpack.sh
+```
+Isso criará um arquivo `.mcpack` pronto para instalação.
+
+## 🎨 Detalhes Técnicas
+
+### Animações por Keyframe:
+- **Duração**: Otimizada entre 0.4s a 1.0s
+- **Loop**: Animações de movimento repetem continuamente
+- **Rotação/Posição**: Valores precisos para cada osso
+
+### Ossos Animados:
+- `body` - Tronco (rotação e posição)
+- `head` - Cabeça (rotação independente)
+- `leftarm` / `rightarm` - Braços
+- `leftleg` / `rightleg` - Pernas
+
+### Animation Controllers:
+- `controller.animation.player.move` - Gerencia movimentação
+- `controller.animation.player.look` - Controla visão
+- `controller.animation.player.damage` - Resposta a danos
+
+## 📊 Queries Utilizadas
+
+```
+query.is_jumping         - Detecta pulo
+query.is_falling         - Detecta queda
+query.is_in_water        - Detecta água
+query.is_sneaking        - Detecta agachamento
+query.is_gliding         - Detecta planejamento
+query.is_moving          - Detecta movimento
+query.is_on_ground       - Detecta contato com chão
+query.modified_move_speed - Velocidade de movimento
+```
+
+## 🔧 Customização
+
+### Ajustar Velocidade de Animação:
+No arquivo `player.animation_controllers.json`, modifique:
+```json
+"playback_rate": 1.5  // Aumentar para mais rápido, diminuir para mais lento
+```
+
+### Alterar Ângulos de Rotação:
+No arquivo `player.animation.json`, edite os valores de rotação (em graus):
+```json
+"rotation": {
+  "0.0": [0, 0, 0],
+  "0.5": [10, 0, 0],  // Aumentar para mais rotação
+  "1.0": [0, 0, 0]
+}
+```
+
+## 📦 Dependências
+
+- **Minecraft Bedrock**: v1.19.0 ou superior
+- **UUIDs**: Únicos para cada pack
+
+## 🐛 Troubleshooting
+
+| Problema | Solução |
+|----------|----------|
+| Animações não funcionam | Certifique-se de que ambos os packs estão habilitados |
+| Player fica travado | Verifique se o `animation_controller` está correto |
+| Movimento estranho | Reduza os valores de rotação em `player.animation.json` |
+
+## 📝 Roadmap v3
+
+- [ ] Animações de ataque (com espada, arco, etc)
+- [ ] Animações de armas de duas mãos
+- [ ] Emotes e dança
+- [ ] Animações de morte customizadas
+- [ ] Suporte a mobs (Zombie, Skeleton, etc)
+
+## 📄 Licença
+
+Este projeto é de código aberto e pode ser livremente modificado e distribuído.
+
+## 🎓 Créditos
+
+- **Inspiração**: Fresh Movies (Pack de Animações Original)
+- **Desenvolvimento**: Fresh Movies Bedrock v2.0.0
+- **Versão Bedrock**: Portada para compatibilidade total
+
+---
+
+**Versão**: 2.0.0 | **Última Atualização**: 2026-08-05

@@ -1,17 +1,18 @@
 {
   "format_version": 2,
   "header": {
-    "name": "Trailer Animations RP",
-    "description": "Resource pack scaffold com animações e texturas inspiradas no trailer (esqueleto).",
-    "uuid": "d4e5f6a7-b8c9-4d11-9e0f-5a6b7c8d9e0f",
-    "version": [1, 0, 0],
-    "min_engine_version": [1, 16, 0]
+    "description": "Pack de Animações Cinematográficas - Foco Player",
+    "name": "Fresh Movies Bedrock",
+    "uuid": "f0e7d4c3-b2a1-4e6f-8d9c-3a5b1c7e9f2d",
+    "version": [2, 0, 0],
+    "min_engine_version": [1, 19, 0]
   },
   "modules": [
     {
+      "description": "Animações do Player",
       "type": "resources",
-      "uuid": "0f1e2d3c-4b5a-6c7d-8e9f-00a1b2c3d4e5",
-      "version": [1, 0, 0]
+      "uuid": "a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d",
+      "version": [2, 0, 0]
     }
   ]
 }

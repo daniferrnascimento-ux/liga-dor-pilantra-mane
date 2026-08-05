@@ -1,0 +1,43 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "minecraft:player",
+      "is_summonable": false,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "minecraft:swimming": {
+        "minecraft:movement": {
+          "value": 0.1
+        }
+      },
+      "minecraft:sneaking": {
+        "minecraft:movement": {
+          "value": 0.0
+        }
+      }
+    },
+    "components": {
+      "minecraft:player.animation": {
+        "player.model_offset": 0.0,
+        "player.death": "animation.player.death",
+        "player.fall_flying": "animation.player.gliding"
+      },
+      "minecraft:player.observed_properties": {
+        "player.animation": {
+          "player.carrying": "query.has_player_touch_surface || query.is_on_ground"
+        }
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "randomize": [
+          {
+            "weight": 100
+          }
+        ]
+      }
+    }
+  }
+}

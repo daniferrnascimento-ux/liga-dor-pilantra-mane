@@ -1,0 +1,135 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.player.move": {
+      "states": {
+        "default": {
+          "blend": [
+            "variable.ground_speed_mo",
+            "query.modified_move_speed"
+          ],
+          "animations": [
+            "animation.player.idle",
+            "animation.player.walking",
+            "animation.player.running"
+          ],
+          "transitions": [
+            {
+              "jumping": "query.is_jumping"
+            },
+            {
+              "falling": "query.is_falling && !query.is_in_water"
+            },
+            {
+              "swimming": "query.is_in_water && query.is_moving"
+            },
+            {
+              "sneaking": "query.is_sneaking"
+            },
+            {
+              "gliding": "query.is_gliding"
+            }
+          ]
+        },
+        "jumping": {
+          "animations": ["animation.player.jumping"],
+          "transitions": [
+            {
+              "falling": "query.is_falling"
+            },
+            {
+              "swimming": "query.is_in_water"
+            },
+            {
+              "default": "!query.is_jumping"
+            }
+          ]
+        },
+        "falling": {
+          "animations": ["animation.player.falling"],
+          "transitions": [
+            {
+              "swimming": "query.is_in_water"
+            },
+            {
+              "default": "!query.is_falling && query.is_on_ground"
+            }
+          ]
+        },
+        "swimming": {
+          "animations": ["animation.player.swimming"],
+          "transitions": [
+            {
+              "falling": "!query.is_in_water && query.is_falling"
+            },
+            {
+              "default": "!query.is_in_water"
+            }
+          ]
+        },
+        "sneaking": {
+          "animations": ["animation.player.sneaking"],
+          "transitions": [
+            {
+              "falling": "query.is_falling && !query.is_sneaking"
+            },
+            {
+              "jumping": "query.is_jumping && !query.is_sneaking"
+            },
+            {
+              "default": "!query.is_sneaking"
+            }
+          ]
+        },
+        "gliding": {
+          "animations": ["animation.player.gliding"],
+          "transitions": [
+            {
+              "falling": "!query.is_gliding && query.is_falling"
+            },
+            {
+              "default": "!query.is_gliding"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.player.look": {
+      "states": {
+        "default": {
+          "animations": [],
+          "blend": [
+            "query.head_y_rotation",
+            "query.head_x_rotation"
+          ]
+        }
+      }
+    },
+    "controller.animation.player.damage": {
+      "states": {
+        "default": {
+          "animations": [],
+          "transitions": [
+            {
+              "hit": "query.is_damage_nearby || query.last_damage_time < 0.5"
+            }
+          ]
+        },
+        "hit": {
+          "animations": [
+            {
+              "animation.player.damage": {
+                "playback_rate": 2.0
+              }
+            }
+          ],
+          "transitions": [
+            {
+              "default": "query.last_damage_time >= 0.5"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

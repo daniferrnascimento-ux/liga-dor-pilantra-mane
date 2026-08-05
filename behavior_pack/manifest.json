@@ -1,17 +1,24 @@
 {
   "format_version": 2,
   "header": {
-    "name": "Trailer Animations BP",
-    "description": "Behavior pack scaffold com lógica para animações inspiradas no trailer do Minecraft (esqueleto).",
-    "uuid": "b1a2c3d4-e5f6-4711-8a2b-0a1b2c3d4e5f",
-    "version": [1, 0, 0],
-    "min_engine_version": [1, 16, 0]
+    "description": "Behavior pack para animações cinematográficas",
+    "name": "Fresh Movies Behavior",
+    "uuid": "d4c3b2a1-f6e5-8a7b-0c9d-2e3f4a5b6c7d",
+    "version": [2, 0, 0],
+    "min_engine_version": [1, 19, 0]
   },
   "modules": [
     {
-      "type": "data",
-      "uuid": "c2d3e4f5-6789-4123-9abc-1a2b3c4d5e6f",
-      "version": [1, 0, 0]
+      "description": "Comportamentos do Player",
+      "type": "behavior",
+      "uuid": "c6b7a8d9-e0f1-2c3d-4e5f-6a7b8c9d0e1f",
+      "version": [2, 0, 0]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "f0e7d4c3-b2a1-4e6f-8d9c-3a5b1c7e9f2d",
+      "version": [2, 0, 0]
     }
   ]
 }
