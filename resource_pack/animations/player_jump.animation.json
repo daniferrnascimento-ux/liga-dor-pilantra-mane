@@ -1,0 +1,14 @@
+{
+  "format_version": "1.16.100",
+  "animations": {
+    "animation.liga.player.jump": {
+      "animation_length": 20,
+      "loop": false,
+      "bones": {
+        "body": {"position": [[0, 0, 0, 0], [0, -1.5, 0, 5], [0, 0, 0, 20]]},
+        "left_leg": {"rotation": [[-10, 0, 0, 0], [30, 0, 0, 6], [0, 0, 0, 20]]},
+        "right_leg": {"rotation": [[-10, 0, 0, 0], [30, 0, 0, 6], [0, 0, 0, 20]]}
+      }
+    }
+  }
+}

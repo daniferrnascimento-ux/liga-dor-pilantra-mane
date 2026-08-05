@@ -1,29 +1,31 @@
-# Trailer Animations Pack — Scaffold
+# Pack de Animações — Liga do Pilantra (Bedrock 1.26.40)
 
-Este repositório agora contém um scaffold para um Bedrock Add-on com animations e textures inspiradas no trailer do Minecraft.
+Este diretório contém um exemplo de resource pack + behavior pack com modelos e animações compatíveis com Bedrock Edition (versão 1.26.40).
 
-O que eu adicionei:
-- behavior_pack/manifest.json (já comitado previamente)
-- resource_pack/manifest.json
-- resource_pack/animations/trailer_swoop.animation.json
-- resource_pack/animation_controllers/controller.trailer.camera.json
-- resource_pack/textures/README_ADD_TEXTURES.txt (instruções para adicionar suas PNGs)
+O que tem aqui
+- resource_pack/manifest.json — metadados do resource pack
+- resource_pack/models/entity/player.geo.json — modelo geométrico simples (importável no Blockbench)
+- resource_pack/animations/*.animation.json — animações (idle, walk, run, jump)
+- resource_pack/particles/pilot_spark.particle.json — exemplo de efeito de partícula
+- behavior_pack/manifest.json — metadados do behavior pack
+- behavior_pack/animation_controllers/player.controller.json — exemplo de controller que troca animações
 
-Como prosseguir (resumido):
-1) Se você quer adicionar a textura que mostrou (lava/magma) e autorizou, faça upload do PNG como:
-   resource_pack/textures/lava_magma.png
+Como importar no Blockbench (passo a passo)
+1) Abra o Blockbench (recomendado Blockbench 4.x com MCBE add-on instalado).
+2) File > Import > Bedrock model
+   - Selecione `resource_pack/models/entity/player.geo.json` para carregar o modelo.
+3) Para importar animações:
+   - Animation > Import > Bedrock animation
+   - Escolha os arquivos em resource_pack/animations/*.animation.json
+4) Teste as animações no Blockbench usando o painel de animações.
 
-2) Substitua os UUIDs nos manifests por UUIDs próprios, se preferir. Ambos os manifests (behavior + resource) precisam ter UUIDs distintos.
-   - Use um gerador de UUID v4.
+Como gerar um .mcpack (instalável no Minecraft)
+- Compacte individualmente cada pack (resource_pack e behavior_pack) em .zip e renomeie para .mcpack;
+- OU coloque as duas pastas dentro de um zip e altere a extensão para .mcpack (algumas versões pedem os dois packs separados sob Pastas com manifest);
+- Instale no dispositivo Bedrock e ative tanto Behavior Pack quanto Resource Pack para ver as animações.
 
-3) Para empacotar: compacte as pastas `resource_pack/` e `behavior_pack/` juntas em um único ZIP e renomeie para `meu_pack.mcpack`.
+Compatibilidade e notas
+- Arquivos foram feitos para serem compatíveis com Bedrock 1.26.40 e Blockbench. Alguns campos podem precisar de ajustes para modelos complexos.
+- As animações são exemplos base — ajuste pivôs e keyframes no Blockbench para refinar.
 
-4) Instale no Bedrock: abra o `.mcpack` no dispositivo ou coloque as pastas nas pastas `com.mojang/resource_packs/` e `com.mojang/behavior_packs/` do seu dispositivo.
-
-5) Teste: aplique o `animation_controller` em uma entidade custom ou use um behavior que chame a animação. Exemplo mínimo de uso no entity JSON deve referenciar `controller.trailer.camera`.
-
-Avisos legais rápidos:
-- Você confirmou autorização para usar a imagem fornecida; eu não movi nem enviei a imagem automativamente. Faça upload manualmente se quiser que ela entre no repo.
-- Não incluirei assets oficiais do trailer sem permissão.
-
-Se quiser que eu faça upload da imagem que você enviou aqui, confirme explicitamente e anexe o arquivo PNG (ou diga que me autoriza a copiar a imagem já postada).
+Se você quiser que eu exporte um .mcpack pronto e adicione aqui o binário, confirme que quer o arquivo grande no repo (isso aumenta o tamanho do repositório).

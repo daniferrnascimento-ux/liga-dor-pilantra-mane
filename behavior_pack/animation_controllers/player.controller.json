@@ -1,0 +1,25 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.liga.player": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "test": "query.is_moving == 1", "next_state": "walk" },
+            { "test": "query.is_jumping == 1", "next_state": "jump" }
+          ],
+          "on_entry": [ { "run_animation": "animation.liga.player.idle" } ]
+        },
+        "walk": {
+          "transitions": [ { "test": "query.is_moving == 0", "next_state": "default" } ],
+          "on_entry": [ { "run_animation": "animation.liga.player.walk" } ]
+        },
+        "jump": {
+          "transitions": [ { "test": "query.is_on_ground == 1", "next_state": "default" } ],
+          "on_entry": [ { "run_animation": "animation.liga.player.jump" } ]
+        }
+      }
+    }
+  }
+}

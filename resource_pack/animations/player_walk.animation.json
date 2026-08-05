@@ -1,0 +1,39 @@
+{
+  "format_version": "1.16.100",
+  "animations": {
+    "animation.liga.player.walk": {
+      "animation_length": 24,
+      "loop": true,
+      "bones": {
+        "left_leg": {
+          "rotation": [
+            [30, 0, 0, 0],
+            [-30, 0, 0, 12],
+            [30, 0, 0, 24]
+          ]
+        },
+        "right_leg": {
+          "rotation": [
+            [-30, 0, 0, 0],
+            [30, 0, 0, 12],
+            [-30, 0, 0, 24]
+          ]
+        },
+        "left_arm": {
+          "rotation": [
+            [-20, 0, 0, 0],
+            [20, 0, 0, 12],
+            [-20, 0, 0, 24]
+          ]
+        },
+        "right_arm": {
+          "rotation": [
+            [20, 0, 0, 0],
+            [-20, 0, 0, 12],
+            [20, 0, 0, 24]
+          ]
+        }
+      }
+    }
+  }
+}

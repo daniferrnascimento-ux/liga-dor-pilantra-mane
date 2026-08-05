@@ -1,0 +1,27 @@
+{
+  "format_version": "1.16.100",
+  "animations": {
+    "animation.liga.player.idle": {
+      "animation_length": 40,
+      "loop": true,
+      "bones": {
+        "head": {
+          "rotation": [
+            [0, 0, 0, 0],
+            [5, 0, 0, 10],
+            [0, 0, 0, 20],
+            [-5, 0, 0, 30],
+            [0, 0, 0, 40]
+          ]
+        },
+        "body": {
+          "position": [
+            [0, 0, 0, 0],
+            [0, 0.02, 0, 20],
+            [0, 0, 0, 40]
+          ]
+        }
+      }
+    }
+  }
+}
