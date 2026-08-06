@@ -1,236 +1,614 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-WORKDIR="LeagueOfMaster_mcpack"
-BP="$WORKDIR/LeagueOfMaster_behavior_pack"
-RP="$WORKDIR/LeagueOfMaster_resource_pack"
+WORKDIR="FreshMovies_mcpack"
+BP="$WORKDIR/FreshMovies_behavior_pack"
+RP="$WORKDIR/FreshMovies_resource_pack"
 
-echo "Limpando trabalho anterior..."
-rm -rf "$WORKDIR" LeagueOfMaster.mcpack
+echo "🎬 Limpando trabalho anterior..."
+rm -rf "$WORKDIR" FreshMovies.mcpack
 
-echo "Criando diretórios..."
-mkdir -p "$BP/items" "$BP/scripts" "$RP/textures/items" "$RP/textures/logo"
+echo "📁 Criando diretórios..."
+mkdir -p "$BP/entities" "$RP/animations" "$RP/animation_controllers"
 
-echo "Criando arquivos..."
-
-cat > "$BP/manifest.json" <<'EOF'
-{
-  "format_version": 2,
-  "header": {
-    "name": "League of Master — Behavior Pack",
-    "description": "League of Master v1 — Sistema RPG: encantamentos, habilidades de magma e status",
-    "uuid": "f3a1b2c3-9d3e-4bd2-8d2c-111111abcdef",
-    "version": [1, 0, 0],
-    "min_engine_version": [1, 18, 0]
-  },
-  "modules": [
-    {
-      "type": "data",
-      "uuid": "a1b2c3d4-2f3e-4a5b-9c4d-222222abcdef",
-      "version": [1, 0, 0]
-    },
-    {
-      "type": "scripting",
-      "uuid": "b2c3d4e5-3f4a-4b6c-8d5e-333333abcdef",
-      "version": [1, 0, 0]
-    }
-  ]
-}
-EOF
+echo "✍️  Criando arquivos do Resource Pack..."
 
 cat > "$RP/manifest.json" <<'EOF'
 {
   "format_version": 2,
   "header": {
-    "name": "League of Master — Resource Pack",
-    "description": "Assets: texturas e ícones para League of Master v1",
-    "uuid": "c4d5e6f7-4a5b-4c6d-9e6f-444444abcdef",
-    "version": [1, 0, 0],
-    "min_engine_version": [1, 18, 0]
+    "description": "Pack de Animações Cinematográficas - Foco Player",
+    "name": "Fresh Movies Bedrock",
+    "uuid": "f0e7d4c3-b2a1-4e6f-8d9c-3a5b1c7e9f2d",
+    "version": [2, 0, 0],
+    "min_engine_version": [1, 19, 0]
   },
   "modules": [
     {
+      "description": "Animações do Player",
       "type": "resources",
-      "uuid": "d5e6f7a8-5b6c-4d7e-8f7a-555555abcdef",
-      "version": [1, 0, 0]
+      "uuid": "a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d",
+      "version": [2, 0, 0]
     }
   ]
 }
 EOF
 
-cat > "$BP/items/magma_fruit.json" <<'EOF'
+cat > "$RP/animations/player.animation.json" <<'EOF'
 {
-  "format_version": "1.16.0",
-  "minecraft:item": {
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.player.idle": {
+      "loop": true,
+      "animation_length": 1.0,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.5": [2, 0, 0],
+            "1.0": [0, 0, 0]
+          },
+          "position": {
+            "0.0": [0, 0, 0],
+            "0.5": [0, 0.2, 0],
+            "1.0": [0, 0, 0]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.5": [-3, 0, 0],
+            "1.0": [0, 0, 0]
+          }
+        },
+        "leftarm": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.3": [-5, 0, -5],
+            "0.6": [-5, 0, 5],
+            "1.0": [0, 0, 0]
+          }
+        },
+        "rightarm": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.3": [-5, 0, 5],
+            "0.6": [-5, 0, -5],
+            "1.0": [0, 0, 0]
+          }
+        }
+      }
+    },
+    "animation.player.walking": {
+      "loop": true,
+      "animation_length": 0.6,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.3": [3, 0, 0],
+            "0.6": [0, 0, 0]
+          },
+          "position": {
+            "0.0": [0, 0, 0],
+            "0.15": [0, 0.3, 0],
+            "0.3": [0, 0, 0],
+            "0.45": [0, 0.3, 0],
+            "0.6": [0, 0, 0]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.3": [-5, 0, 0],
+            "0.6": [0, 0, 0]
+          }
+        },
+        "leftarm": {
+          "rotation": {
+            "0.0": [-30, 0, 0],
+            "0.3": [30, 0, 0],
+            "0.6": [-30, 0, 0]
+          }
+        },
+        "rightarm": {
+          "rotation": {
+            "0.0": [30, 0, 0],
+            "0.3": [-30, 0, 0],
+            "0.6": [30, 0, 0]
+          }
+        },
+        "leftleg": {
+          "rotation": {
+            "0.0": [-30, 0, 0],
+            "0.3": [30, 0, 0],
+            "0.6": [-30, 0, 0]
+          }
+        },
+        "rightleg": {
+          "rotation": {
+            "0.0": [30, 0, 0],
+            "0.3": [-30, 0, 0],
+            "0.6": [30, 0, 0]
+          }
+        }
+      }
+    },
+    "animation.player.running": {
+      "loop": true,
+      "animation_length": 0.4,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [8, 0, 0],
+            "0.2": [8, 0, 0],
+            "0.4": [8, 0, 0]
+          },
+          "position": {
+            "0.0": [0, 0, 0],
+            "0.1": [0, 0.4, 0],
+            "0.2": [0, 0, 0],
+            "0.3": [0, 0.4, 0],
+            "0.4": [0, 0, 0]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [-8, 0, 0],
+            "0.4": [-8, 0, 0]
+          }
+        },
+        "leftarm": {
+          "rotation": {
+            "0.0": [-60, 0, 0],
+            "0.2": [40, 0, 0],
+            "0.4": [-60, 0, 0]
+          }
+        },
+        "rightarm": {
+          "rotation": {
+            "0.0": [40, 0, 0],
+            "0.2": [-60, 0, 0],
+            "0.4": [40, 0, 0]
+          }
+        },
+        "leftleg": {
+          "rotation": {
+            "0.0": [-50, 0, 0],
+            "0.2": [50, 0, 0],
+            "0.4": [-50, 0, 0]
+          }
+        },
+        "rightleg": {
+          "rotation": {
+            "0.0": [50, 0, 0],
+            "0.2": [-50, 0, 0],
+            "0.4": [50, 0, 0]
+          }
+        }
+      }
+    },
+    "animation.player.jumping": {
+      "animation_length": 0.5,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [-15, 0, 0],
+            "0.25": [-15, 0, 0],
+            "0.5": [10, 0, 0]
+          },
+          "position": {
+            "0.0": [0, 0, 0],
+            "0.25": [0, 0.8, 0],
+            "0.5": [0, 0, 0]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [15, 0, 0],
+            "0.25": [15, 0, 0],
+            "0.5": [-10, 0, 0]
+          }
+        },
+        "leftarm": {
+          "rotation": {
+            "0.0": [-90, 0, 0],
+            "0.5": [20, 0, 0]
+          }
+        },
+        "rightarm": {
+          "rotation": {
+            "0.0": [-90, 0, 0],
+            "0.5": [20, 0, 0]
+          }
+        },
+        "leftleg": {
+          "rotation": {
+            "0.0": [-60, 0, 0],
+            "0.5": [20, 0, 0]
+          }
+        },
+        "rightleg": {
+          "rotation": {
+            "0.0": [-60, 0, 0],
+            "0.5": [20, 0, 0]
+          }
+        }
+      }
+    },
+    "animation.player.falling": {
+      "loop": true,
+      "animation_length": 1.0,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.5": [2, 0, 0],
+            "1.0": [0, 0, 0]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [-5, 0, 0],
+            "1.0": [-5, 0, 0]
+          }
+        },
+        "leftarm": {
+          "rotation": {
+            "0.0": [-20, 0, -15],
+            "1.0": [-20, 0, -15]
+          }
+        },
+        "rightarm": {
+          "rotation": {
+            "0.0": [-20, 0, 15],
+            "1.0": [-20, 0, 15]
+          }
+        }
+      }
+    },
+    "animation.player.swimming": {
+      "loop": true,
+      "animation_length": 0.8,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [25, 0, 0],
+            "0.4": [30, 0, 0],
+            "0.8": [25, 0, 0]
+          },
+          "position": {
+            "0.0": [0, 0, 0],
+            "0.4": [0, 0.15, 0],
+            "0.8": [0, 0, 0]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [25, 0, 0],
+            "0.8": [25, 0, 0]
+          }
+        },
+        "leftarm": {
+          "rotation": {
+            "0.0": [80, 0, 0],
+            "0.4": [120, 0, 0],
+            "0.8": [80, 0, 0]
+          }
+        },
+        "rightarm": {
+          "rotation": {
+            "0.0": [80, 0, 0],
+            "0.4": [120, 0, 0],
+            "0.8": [80, 0, 0]
+          }
+        }
+      }
+    },
+    "animation.player.sneaking": {
+      "loop": true,
+      "animation_length": 0.8,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [45, 0, 0],
+            "0.4": [48, 0, 0],
+            "0.8": [45, 0, 0]
+          },
+          "position": {
+            "0.0": [0, -0.5, 0],
+            "0.4": [0, -0.4, 0],
+            "0.8": [0, -0.5, 0]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [-40, 0, 0],
+            "0.8": [-40, 0, 0]
+          }
+        },
+        "leftarm": {
+          "rotation": {
+            "0.0": [-10, 0, -10],
+            "0.4": [-15, 0, -15],
+            "0.8": [-10, 0, -10]
+          }
+        },
+        "rightarm": {
+          "rotation": {
+            "0.0": [-10, 0, 10],
+            "0.4": [-15, 0, 15],
+            "0.8": [-10, 0, 10]
+          }
+        }
+      }
+    },
+    "animation.player.gliding": {
+      "loop": true,
+      "animation_length": 1.0,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [45, 0, 0],
+            "0.5": [50, 5, 0],
+            "1.0": [45, 0, 0]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [-30, 0, 0],
+            "0.5": [-35, 0, 0],
+            "1.0": [-30, 0, 0]
+          }
+        },
+        "leftarm": {
+          "rotation": {
+            "0.0": [-120, 0, -30],
+            "1.0": [-120, 0, -30]
+          }
+        },
+        "rightarm": {
+          "rotation": {
+            "0.0": [-120, 0, 30],
+            "1.0": [-120, 0, 30]
+          }
+        }
+      }
+    }
+  }
+}
+EOF
+
+cat > "$RP/animation_controllers/player.animation_controllers.json" <<'EOF'
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.player.move": {
+      "states": {
+        "default": {
+          "blend": [
+            "variable.ground_speed_mo",
+            "query.modified_move_speed"
+          ],
+          "animations": [
+            "animation.player.idle",
+            "animation.player.walking",
+            "animation.player.running"
+          ],
+          "transitions": [
+            {
+              "jumping": "query.is_jumping"
+            },
+            {
+              "falling": "query.is_falling && !query.is_in_water"
+            },
+            {
+              "swimming": "query.is_in_water && query.is_moving"
+            },
+            {
+              "sneaking": "query.is_sneaking"
+            },
+            {
+              "gliding": "query.is_gliding"
+            }
+          ]
+        },
+        "jumping": {
+          "animations": ["animation.player.jumping"],
+          "transitions": [
+            {
+              "falling": "query.is_falling"
+            },
+            {
+              "swimming": "query.is_in_water"
+            },
+            {
+              "default": "!query.is_jumping"
+            }
+          ]
+        },
+        "falling": {
+          "animations": ["animation.player.falling"],
+          "transitions": [
+            {
+              "swimming": "query.is_in_water"
+            },
+            {
+              "default": "!query.is_falling && query.is_on_ground"
+            }
+          ]
+        },
+        "swimming": {
+          "animations": ["animation.player.swimming"],
+          "transitions": [
+            {
+              "falling": "!query.is_in_water && query.is_falling"
+            },
+            {
+              "default": "!query.is_in_water"
+            }
+          ]
+        },
+        "sneaking": {
+          "animations": ["animation.player.sneaking"],
+          "transitions": [
+            {
+              "falling": "query.is_falling && !query.is_sneaking"
+            },
+            {
+              "jumping": "query.is_jumping && !query.is_sneaking"
+            },
+            {
+              "default": "!query.is_sneaking"
+            }
+          ]
+        },
+        "gliding": {
+          "animations": ["animation.player.gliding"],
+          "transitions": [
+            {
+              "falling": "!query.is_gliding && query.is_falling"
+            },
+            {
+              "default": "!query.is_gliding"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.player.look": {
+      "states": {
+        "default": {
+          "animations": [],
+          "blend": [
+            "query.head_y_rotation",
+            "query.head_x_rotation"
+          ]
+        }
+      }
+    },
+    "controller.animation.player.damage": {
+      "states": {
+        "default": {
+          "animations": [],
+          "transitions": [
+            {
+              "hit": "query.is_damage_nearby || query.last_damage_time < 0.5"
+            }
+          ]
+        },
+        "hit": {
+          "animations": [
+            {
+              "animation.player.damage": {
+                "playback_rate": 2.0
+              }
+            }
+          ],
+          "transitions": [
+            {
+              "default": "query.last_damage_time >= 0.5"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+EOF
+
+echo "✍️  Criando arquivos do Behavior Pack..."
+
+cat > "$BP/manifest.json" <<'EOF'
+{
+  "format_version": 2,
+  "header": {
+    "description": "Behavior pack para animações cinematográficas",
+    "name": "Fresh Movies Behavior",
+    "uuid": "d4c3b2a1-f6e5-8a7b-0c9d-2e3f4a5b6c7d",
+    "version": [2, 0, 0],
+    "min_engine_version": [1, 19, 0]
+  },
+  "modules": [
+    {
+      "description": "Comportamentos do Player",
+      "type": "behavior",
+      "uuid": "c6b7a8d9-e0f1-2c3d-4e5f-6a7b8c9d0e1f",
+      "version": [2, 0, 0]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "f0e7d4c3-b2a1-4e6f-8d9c-3a5b1c7e9f2d",
+      "version": [2, 0, 0]
+    }
+  ]
+}
+EOF
+
+cat > "$BP/entities/player.entity.json" <<'EOF'
+{
+  "format_version": "1.12.0",
+  "minecraft:entity": {
     "description": {
-      "identifier": "lotm:magma_fruit",
-      "category": "Misc",
+      "identifier": "minecraft:player",
+      "is_summonable": false,
       "is_experimental": false
     },
-    "components": {
-      "minecraft:icon": "textures/items/magma_fruit",
-      "minecraft:use_duration": 32,
-      "minecraft:food": {
-        "nutrition": 6,
-        "saturation_modifier": "normal",
-        "can_always_eat": false
+    "component_groups": {
+      "minecraft:swimming": {
+        "minecraft:movement": {
+          "value": 0.1
+        }
       },
-      "minecraft:display_name": "Fruta do Magma"
-    }
-  }
-}
-EOF
-
-cat > "$BP/items/enchant_scroll.json" <<'EOF'
-{
-  "format_version": "1.16.0",
-  "minecraft:item": {
-    "description": {
-      "identifier": "lotm:enchant_scroll",
-      "category": "Misc",
-      "is_experimental": false
+      "minecraft:sneaking": {
+        "minecraft:movement": {
+          "value": 0.0
+        }
+      }
     },
     "components": {
-      "minecraft:icon": "textures/items/enchant_scroll",
-      "minecraft:use_duration": 16,
-      "lotm:scroll": {
-        "enchant_type": "sharpness",
-        "level": 10
+      "minecraft:player.animation": {
+        "player.model_offset": 0.0,
+        "player.death": "animation.player.death",
+        "player.fall_flying": "animation.player.gliding"
       },
-      "minecraft:display_name": "Pergaminho de Encantamento (exemplo)"
-    }
-  }
-}
-EOF
-
-cat > "$BP/items/double_jump_token.json" <<'EOF'
-{
-  "format_version": "1.16.0",
-  "minecraft:item": {
-    "description": {
-      "identifier": "lotm:double_jump_token",
-      "category": "Misc",
-      "is_experimental": false
+      "minecraft:player.observed_properties": {
+        "player.animation": {
+          "player.carrying": "query.has_player_touch_surface || query.is_on_ground"
+        }
+      }
     },
-    "components": {
-      "minecraft:icon": "textures/items/double_jump_token",
-      "minecraft:use_duration": 10,
-      "minecraft:display_name": "Token: Pulo Duplo (use para desbloquear)"
+    "events": {
+      "minecraft:entity_spawned": {
+        "randomize": [
+          {
+            "weight": 100
+          }
+        ]
+      }
     }
   }
 }
 EOF
 
-cat > "$BP/items/ferreiro_spawner.json" <<'EOF'
-{
-  "format_version": "1.16.0",
-  "minecraft:item": {
-    "description": {
-      "identifier": "lotm:ferreiro_spawner",
-      "category": "Misc",
-      "is_experimental": false
-    },
-    "components": {
-      "minecraft:icon": "textures/items/ferreiro_spawner",
-      "minecraft:use_duration": 1,
-      "minecraft:display_name": "Chamada do Ferreiro LoM"
-    }
-  }
-}
-EOF
+echo "📦 Compactando em FreshMovies.mcpack..."
+zip -r -q FreshMovies.mcpack "$WORKDIR"
 
-cat > "$BP/scripts/main.js" <<'EOF'
-// League of Master — v1 script (protótipo)
-var system = server.registerSystem(0, 0);
-let playerState = {};
-system.initialize = function() {
-  this.listenForEvent("minecraft:player_used_item", onPlayerUseItem);
-  this.listenForEvent("minecraft:entity_hurt", onEntityHurt);
-  this.listenForEvent("minecraft:tick", onTick);
-  this.log("League of Master v1 script iniciado");
-};
-function playerKeyFromEntity(entity) { if (!entity) return null; return entity.__unique_id || entity.entity_id || entity.name || null; }
-function ensurePlayerState(key){ if (!playerState[key]) playerState[key] = {cooldowns:{},flags:{},usedDoubleJump:false}; return playerState[key]; }
-function onPlayerUseItem(eventData){
-  try {
-    let player = eventData.data.player || eventData.data.entity;
-    if (!player) return;
-    let item = eventData.data && eventData.data.item_stack ? eventData.data.item_stack : null;
-    let itemId = item && item.item ? item.item : (eventData.data.item ? eventData.data.item : null);
-    let key = playerKeyFromEntity(player);
-    let st = ensurePlayerState(key);
-    if (itemId === "lotm:magma_fruit") {
-      st.flags.magma_eaten = Date.now() + 1000*60*60*24;
-      sendMessage(player, "Você ingeriu a Fruta do Magma! Ferreiro desbloqueado (v1).");
-      applyEffect(player, "minecraft:resistance", 60);
-      return;
-    }
-    if (itemId === "lotm:double_jump_token") { st.flags.double_jump = true; sendMessage(player, "Pulo duplo desbloqueado!"); return; }
-    if (itemId === "lotm:enchant_scroll") { sendMessage(player, "Pergaminho usado (protótipo)."); return; }
-    if (itemId === "lotm:ferreiro_spawner") { if (st.flags.magma_eaten && st.flags.magma_eaten > Date.now()) spawnFerreiroForPlayer(player); else sendMessage(player, "Coma a Fruta do Magma primeiro."); return; }
-  } catch(e){ system.log("onPlayerUseItem error: "+e); }
-}
-function onEntityHurt(e){ /* protótipo */ }
-function onTick(e){ /* protótipo */ }
-function getEntityName(entity){ return entity && (entity.name || entity.__name || entity.__unique_id) || null; }
-function sendMessage(playerEntity, text){ let name = getEntityName(playerEntity) || ""; system.executeCommand(`/tellraw "${name}" {"rawtext":[{"text":"${text}"}]}`, ()=>{}); }
-function applyEffect(playerEntity, effectId, seconds){ let name = getEntityName(playerEntity); if (!name) return; system.executeCommand(`/effect "${name}" ${effectId} ${seconds} true`, ()=>{}); }
-function spawnFerreiroForPlayer(playerEntity){ let name = getEntityName(playerEntity); if (!name) return; system.executeCommand(`/execute "${name}" ~ ~ ~ summon villager ~ ~1 ~ {"CustomName":"\\"Ferreiro LoM\\"","Offers":{}}`, ()=>{}); sendMessage(playerEntity, "Ferreiro LoM spawnado (protótipo)."); }
-EOF
-
-cat > "$RP/textures/logo/league_of_master_logo.svg" <<'EOF'
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="256" height="256" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
-  <defs><linearGradient id="g1" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#ff8a00"/><stop offset="1" stop-color="#ff2d00"/></linearGradient></defs>
-  <path d="M512 80 L768 180 L768 520 C768 720 640 840 512 880 C384 840 256 720 256 520 L256 180 Z" fill="url(#g1)"/>
-  <text x="512" y="980" font-family="Verdana, Arial" font-size="64" fill="#fff" text-anchor="middle">League of Master</text>
-</svg>
-EOF
-
-cat > "$RP/textures/items/magma_fruit.svg" <<'EOF'
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><rect width="64" height="64" rx="8" fill="#ff6f00"/><circle cx="32" cy="28" r="12" fill="#fff3d6"/></svg>
-EOF
-
-cat > "$RP/textures/items/enchant_scroll.svg" <<'EOF'
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><rect width="64" height="64" rx="8" fill="#f5f5f5" stroke="#d0d7de"/><text x="32" y="38" font-size="10" text-anchor="middle">SCRL</text></svg>
-EOF
-
-cat > "$RP/textures/items/double_jump_token.svg" <<'EOF'
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><rect width="64" height="64" rx="8" fill="#e6f7ff"/><text x="32" y="38" font-size="12" text-anchor="middle">2x</text></svg>
-EOF
-
-cat > "$RP/textures/items/ferreiro_spawner.svg" <<'EOF'
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><rect width="64" height="64" rx="8" fill="#f3e8ff"/><text x="32" y="38" font-size="12" text-anchor="middle">F</text></svg>
-EOF
-
-cat > README.md <<'EOF'
-# League of Master — gerado localmente
-
-Script cria behavior + resource packs e empacota em LeagueOfMaster.mcpack.
-
-Use ImageMagick (opcional) para converter SVG → PNG, se necessário para seu cliente Bedrock.
-EOF
-
-echo "Tentando converter SVGs para PNG (se ImageMagick estiver instalado)..."
-if command -v magick >/dev/null 2>&1; then
-  magick convert "$RP/textures/logo/league_of_master_logo.svg" -resize 256x256 "$RP/textures/logo/league_of_master_logo.png" || true
-  for f in "$RP/textures/items/"*.svg; do
-    name=$(basename "$f" .svg)
-    magick convert "$f" -resize 64x64 "$RP/textures/items/${name}.png" || true
-  done
-  echo "Conversão com 'magick' concluída."
-elif command -v convert >/dev/null 2>&1; then
-  convert "$RP/textures/logo/league_of_master_logo.svg" -resize 256x256 "$RP/textures/logo/league_of_master_logo.png" || true
-  for f in "$RP/textures/items/"*.svg; do
-    name=$(basename "$f" .svg)
-    convert "$f" -resize 64x64 "$RP/textures/items/${name}.png" || true
-  done
-  echo "Conversão com 'convert' concluída."
-else
-  echo "ImageMagick não encontrado — mantive os SVGs como placeholders."
-fi
-
-echo "Compactando em LeagueOfMaster.mcpack..."
-zip -r -q LeagueOfMaster.mcpack "$WORKDIR"
-
-echo "Pronto. Arquivo gerado: $(pwd)/LeagueOfMaster.mcpack"
+echo ""
+echo "✅ ============================================"
+echo "✅ MCPACK CRIADO COM SUCESSO!"
+echo "✅ ============================================"
+echo ""
+echo "📁 Arquivo gerado: $(pwd)/FreshMovies.mcpack"
+echo ""
+echo "🎮 Como instalar:"
+echo "   1. Localize o arquivo FreshMovies.mcpack"
+echo "   2. Abra com duplo-clique"
+echo "   3. Minecraft Bedrock vai se abrir"
+echo "   4. Clique em 'Importar' ou 'Install'"
+echo "   5. Ative o pack nas configurações globais"
+echo "   6. Crie um novo mundo e aproveite!"
+echo ""
+echo "🎬 Fresh Movies v2.0.0 - Bedrock Edition"
+echo ""
