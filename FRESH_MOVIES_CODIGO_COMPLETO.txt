@@ -1,0 +1,1231 @@
+🎬 FRESH MOVIES v2.0.0 - CÓDIGO COMPLETO PARA COPIAR
+=====================================================
+
+ARQUIVO 1: resource_pack/manifest.json
+======================================
+
+{
+  "format_version": 2,
+  "header": {
+    "description": "Pack de Animações Cinematográficas - Foco Player",
+    "name": "Fresh Movies Bedrock",
+    "uuid": "f0e7d4c3-b2a1-4e6f-8d9c-3a5b1c7e9f2d",
+    "version": [2, 0, 0],
+    "min_engine_version": [1, 19, 0]
+  },
+  "modules": [
+    {
+      "description": "Animações do Player",
+      "type": "resources",
+      "uuid": "a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d",
+      "version": [2, 0, 0]
+    }
+  ]
+}
+
+
+ARQUIVO 2: resource_pack/animations/player.animation.json
+==========================================================
+
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.player.idle": {
+      "loop": true,
+      "animation_length": 1.0,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.5": [2, 0, 0],
+            "1.0": [0, 0, 0]
+          },
+          "position": {
+            "0.0": [0, 0, 0],
+            "0.5": [0, 0.2, 0],
+            "1.0": [0, 0, 0]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.5": [-3, 0, 0],
+            "1.0": [0, 0, 0]
+          }
+        },
+        "leftarm": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.3": [-5, 0, -5],
+            "0.6": [-5, 0, 5],
+            "1.0": [0, 0, 0]
+          }
+        },
+        "rightarm": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.3": [-5, 0, 5],
+            "0.6": [-5, 0, -5],
+            "1.0": [0, 0, 0]
+          }
+        }
+      }
+    },
+    "animation.player.walking": {
+      "loop": true,
+      "animation_length": 0.6,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.3": [3, 0, 0],
+            "0.6": [0, 0, 0]
+          },
+          "position": {
+            "0.0": [0, 0, 0],
+            "0.15": [0, 0.3, 0],
+            "0.3": [0, 0, 0],
+            "0.45": [0, 0.3, 0],
+            "0.6": [0, 0, 0]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.3": [-5, 0, 0],
+            "0.6": [0, 0, 0]
+          }
+        },
+        "leftarm": {
+          "rotation": {
+            "0.0": [-30, 0, 0],
+            "0.3": [30, 0, 0],
+            "0.6": [-30, 0, 0]
+          }
+        },
+        "rightarm": {
+          "rotation": {
+            "0.0": [30, 0, 0],
+            "0.3": [-30, 0, 0],
+            "0.6": [30, 0, 0]
+          }
+        },
+        "leftleg": {
+          "rotation": {
+            "0.0": [-30, 0, 0],
+            "0.3": [30, 0, 0],
+            "0.6": [-30, 0, 0]
+          }
+        },
+        "rightleg": {
+          "rotation": {
+            "0.0": [30, 0, 0],
+            "0.3": [-30, 0, 0],
+            "0.6": [30, 0, 0]
+          }
+        }
+      }
+    },
+    "animation.player.running": {
+      "loop": true,
+      "animation_length": 0.4,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [8, 0, 0],
+            "0.2": [8, 0, 0],
+            "0.4": [8, 0, 0]
+          },
+          "position": {
+            "0.0": [0, 0, 0],
+            "0.1": [0, 0.4, 0],
+            "0.2": [0, 0, 0],
+            "0.3": [0, 0.4, 0],
+            "0.4": [0, 0, 0]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [-8, 0, 0],
+            "0.4": [-8, 0, 0]
+          }
+        },
+        "leftarm": {
+          "rotation": {
+            "0.0": [-60, 0, 0],
+            "0.2": [40, 0, 0],
+            "0.4": [-60, 0, 0]
+          }
+        },
+        "rightarm": {
+          "rotation": {
+            "0.0": [40, 0, 0],
+            "0.2": [-60, 0, 0],
+            "0.4": [40, 0, 0]
+          }
+        },
+        "leftleg": {
+          "rotation": {
+            "0.0": [-50, 0, 0],
+            "0.2": [50, 0, 0],
+            "0.4": [-50, 0, 0]
+          }
+        },
+        "rightleg": {
+          "rotation": {
+            "0.0": [50, 0, 0],
+            "0.2": [-50, 0, 0],
+            "0.4": [50, 0, 0]
+          }
+        }
+      }
+    },
+    "animation.player.jumping": {
+      "animation_length": 0.5,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [-15, 0, 0],
+            "0.25": [-15, 0, 0],
+            "0.5": [10, 0, 0]
+          },
+          "position": {
+            "0.0": [0, 0, 0],
+            "0.25": [0, 0.8, 0],
+            "0.5": [0, 0, 0]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [15, 0, 0],
+            "0.25": [15, 0, 0],
+            "0.5": [-10, 0, 0]
+          }
+        },
+        "leftarm": {
+          "rotation": {
+            "0.0": [-90, 0, 0],
+            "0.5": [20, 0, 0]
+          }
+        },
+        "rightarm": {
+          "rotation": {
+            "0.0": [-90, 0, 0],
+            "0.5": [20, 0, 0]
+          }
+        },
+        "leftleg": {
+          "rotation": {
+            "0.0": [-60, 0, 0],
+            "0.5": [20, 0, 0]
+          }
+        },
+        "rightleg": {
+          "rotation": {
+            "0.0": [-60, 0, 0],
+            "0.5": [20, 0, 0]
+          }
+        }
+      }
+    },
+    "animation.player.falling": {
+      "loop": true,
+      "animation_length": 1.0,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.5": [2, 0, 0],
+            "1.0": [0, 0, 0]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [-5, 0, 0],
+            "1.0": [-5, 0, 0]
+          }
+        },
+        "leftarm": {
+          "rotation": {
+            "0.0": [-20, 0, -15],
+            "1.0": [-20, 0, -15]
+          }
+        },
+        "rightarm": {
+          "rotation": {
+            "0.0": [-20, 0, 15],
+            "1.0": [-20, 0, 15]
+          }
+        }
+      }
+    },
+    "animation.player.swimming": {
+      "loop": true,
+      "animation_length": 0.8,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [25, 0, 0],
+            "0.4": [30, 0, 0],
+            "0.8": [25, 0, 0]
+          },
+          "position": {
+            "0.0": [0, 0, 0],
+            "0.4": [0, 0.15, 0],
+            "0.8": [0, 0, 0]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [25, 0, 0],
+            "0.8": [25, 0, 0]
+          }
+        },
+        "leftarm": {
+          "rotation": {
+            "0.0": [80, 0, 0],
+            "0.4": [120, 0, 0],
+            "0.8": [80, 0, 0]
+          }
+        },
+        "rightarm": {
+          "rotation": {
+            "0.0": [80, 0, 0],
+            "0.4": [120, 0, 0],
+            "0.8": [80, 0, 0]
+          }
+        }
+      }
+    },
+    "animation.player.sneaking": {
+      "loop": true,
+      "animation_length": 0.8,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [45, 0, 0],
+            "0.4": [48, 0, 0],
+            "0.8": [45, 0, 0]
+          },
+          "position": {
+            "0.0": [0, -0.5, 0],
+            "0.4": [0, -0.4, 0],
+            "0.8": [0, -0.5, 0]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [-40, 0, 0],
+            "0.8": [-40, 0, 0]
+          }
+        },
+        "leftarm": {
+          "rotation": {
+            "0.0": [-10, 0, -10],
+            "0.4": [-15, 0, -15],
+            "0.8": [-10, 0, -10]
+          }
+        },
+        "rightarm": {
+          "rotation": {
+            "0.0": [-10, 0, 10],
+            "0.4": [-15, 0, 15],
+            "0.8": [-10, 0, 10]
+          }
+        }
+      }
+    },
+    "animation.player.gliding": {
+      "loop": true,
+      "animation_length": 1.0,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [45, 0, 0],
+            "0.5": [50, 5, 0],
+            "1.0": [45, 0, 0]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [-30, 0, 0],
+            "0.5": [-35, 0, 0],
+            "1.0": [-30, 0, 0]
+          }
+        },
+        "leftarm": {
+          "rotation": {
+            "0.0": [-120, 0, -30],
+            "1.0": [-120, 0, -30]
+          }
+        },
+        "rightarm": {
+          "rotation": {
+            "0.0": [-120, 0, 30],
+            "1.0": [-120, 0, 30]
+          }
+        }
+      }
+    }
+  }
+}
+
+
+ARQUIVO 3: resource_pack/animation_controllers/player.animation_controllers.json
+=================================================================================
+
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.player.move": {
+      "states": {
+        "default": {
+          "blend": [
+            "variable.ground_speed_mo",
+            "query.modified_move_speed"
+          ],
+          "animations": [
+            "animation.player.idle",
+            "animation.player.walking",
+            "animation.player.running"
+          ],
+          "transitions": [
+            {
+              "jumping": "query.is_jumping"
+            },
+            {
+              "falling": "query.is_falling && !query.is_in_water"
+            },
+            {
+              "swimming": "query.is_in_water && query.is_moving"
+            },
+            {
+              "sneaking": "query.is_sneaking"
+            },
+            {
+              "gliding": "query.is_gliding"
+            }
+          ]
+        },
+        "jumping": {
+          "animations": ["animation.player.jumping"],
+          "transitions": [
+            {
+              "falling": "query.is_falling"
+            },
+            {
+              "swimming": "query.is_in_water"
+            },
+            {
+              "default": "!query.is_jumping"
+            }
+          ]
+        },
+        "falling": {
+          "animations": ["animation.player.falling"],
+          "transitions": [
+            {
+              "swimming": "query.is_in_water"
+            },
+            {
+              "default": "!query.is_falling && query.is_on_ground"
+            }
+          ]
+        },
+        "swimming": {
+          "animations": ["animation.player.swimming"],
+          "transitions": [
+            {
+              "falling": "!query.is_in_water && query.is_falling"
+            },
+            {
+              "default": "!query.is_in_water"
+            }
+          ]
+        },
+        "sneaking": {
+          "animations": ["animation.player.sneaking"],
+          "transitions": [
+            {
+              "falling": "query.is_falling && !query.is_sneaking"
+            },
+            {
+              "jumping": "query.is_jumping && !query.is_sneaking"
+            },
+            {
+              "default": "!query.is_sneaking"
+            }
+          ]
+        },
+        "gliding": {
+          "animations": ["animation.player.gliding"],
+          "transitions": [
+            {
+              "falling": "!query.is_gliding && query.is_falling"
+            },
+            {
+              "default": "!query.is_gliding"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.player.look": {
+      "states": {
+        "default": {
+          "animations": [],
+          "blend": [
+            "query.head_y_rotation",
+            "query.head_x_rotation"
+          ]
+        }
+      }
+    },
+    "controller.animation.player.damage": {
+      "states": {
+        "default": {
+          "animations": [],
+          "transitions": [
+            {
+              "hit": "query.is_damage_nearby || query.last_damage_time < 0.5"
+            }
+          ]
+        },
+        "hit": {
+          "animations": [
+            {
+              "animation.player.damage": {
+                "playback_rate": 2.0
+              }
+            }
+          ],
+          "transitions": [
+            {
+              "default": "query.last_damage_time >= 0.5"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+
+
+ARQUIVO 4: behavior_pack/manifest.json
+======================================
+
+{
+  "format_version": 2,
+  "header": {
+    "description": "Behavior pack para animações cinematográficas",
+    "name": "Fresh Movies Behavior",
+    "uuid": "d4c3b2a1-f6e5-8a7b-0c9d-2e3f4a5b6c7d",
+    "version": [2, 0, 0],
+    "min_engine_version": [1, 19, 0]
+  },
+  "modules": [
+    {
+      "description": "Comportamentos do Player",
+      "type": "behavior",
+      "uuid": "c6b7a8d9-e0f1-2c3d-4e5f-6a7b8c9d0e1f",
+      "version": [2, 0, 0]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "f0e7d4c3-b2a1-4e6f-8d9c-3a5b1c7e9f2d",
+      "version": [2, 0, 0]
+    }
+  ]
+}
+
+
+ARQUIVO 5: behavior_pack/entities/player.entity.json
+====================================================
+
+{
+  "format_version": "1.12.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "minecraft:player",
+      "is_summonable": false,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "minecraft:swimming": {
+        "minecraft:movement": {
+          "value": 0.1
+        }
+      },
+      "minecraft:sneaking": {
+        "minecraft:movement": {
+          "value": 0.0
+        }
+      }
+    },
+    "components": {
+      "minecraft:player.animation": {
+        "player.model_offset": 0.0,
+        "player.death": "animation.player.death",
+        "player.fall_flying": "animation.player.gliding"
+      },
+      "minecraft:player.observed_properties": {
+        "player.animation": {
+          "player.carrying": "query.has_player_touch_surface || query.is_on_ground"
+        }
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "randomize": [
+          {
+            "weight": 100
+          }
+        ]
+      }
+    }
+  }
+}
+
+
+ARQUIVO 6: create_mcpack.sh
+===========================
+
+#!/usr/bin/env bash
+set -euo pipefail
+
+WORKDIR="FreshMovies_mcpack"
+BP="$WORKDIR/FreshMovies_behavior_pack"
+RP="$WORKDIR/FreshMovies_resource_pack"
+
+echo "🎬 Limpando trabalho anterior..."
+rm -rf "$WORKDIR" FreshMovies.mcpack
+
+echo "📁 Criando diretórios..."
+mkdir -p "$BP/entities" "$RP/animations" "$RP/animation_controllers"
+
+echo "✍️  Criando arquivos do Resource Pack..."
+
+cat > "$RP/manifest.json" <<'EOF'
+{
+  "format_version": 2,
+  "header": {
+    "description": "Pack de Animações Cinematográficas - Foco Player",
+    "name": "Fresh Movies Bedrock",
+    "uuid": "f0e7d4c3-b2a1-4e6f-8d9c-3a5b1c7e9f2d",
+    "version": [2, 0, 0],
+    "min_engine_version": [1, 19, 0]
+  },
+  "modules": [
+    {
+      "description": "Animações do Player",
+      "type": "resources",
+      "uuid": "a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d",
+      "version": [2, 0, 0]
+    }
+  ]
+}
+EOF
+
+cat > "$RP/animations/player.animation.json" <<'EOF'
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.player.idle": {
+      "loop": true,
+      "animation_length": 1.0,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.5": [2, 0, 0],
+            "1.0": [0, 0, 0]
+          },
+          "position": {
+            "0.0": [0, 0, 0],
+            "0.5": [0, 0.2, 0],
+            "1.0": [0, 0, 0]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.5": [-3, 0, 0],
+            "1.0": [0, 0, 0]
+          }
+        },
+        "leftarm": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.3": [-5, 0, -5],
+            "0.6": [-5, 0, 5],
+            "1.0": [0, 0, 0]
+          }
+        },
+        "rightarm": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.3": [-5, 0, 5],
+            "0.6": [-5, 0, -5],
+            "1.0": [0, 0, 0]
+          }
+        }
+      }
+    },
+    "animation.player.walking": {
+      "loop": true,
+      "animation_length": 0.6,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.3": [3, 0, 0],
+            "0.6": [0, 0, 0]
+          },
+          "position": {
+            "0.0": [0, 0, 0],
+            "0.15": [0, 0.3, 0],
+            "0.3": [0, 0, 0],
+            "0.45": [0, 0.3, 0],
+            "0.6": [0, 0, 0]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.3": [-5, 0, 0],
+            "0.6": [0, 0, 0]
+          }
+        },
+        "leftarm": {
+          "rotation": {
+            "0.0": [-30, 0, 0],
+            "0.3": [30, 0, 0],
+            "0.6": [-30, 0, 0]
+          }
+        },
+        "rightarm": {
+          "rotation": {
+            "0.0": [30, 0, 0],
+            "0.3": [-30, 0, 0],
+            "0.6": [30, 0, 0]
+          }
+        },
+        "leftleg": {
+          "rotation": {
+            "0.0": [-30, 0, 0],
+            "0.3": [30, 0, 0],
+            "0.6": [-30, 0, 0]
+          }
+        },
+        "rightleg": {
+          "rotation": {
+            "0.0": [30, 0, 0],
+            "0.3": [-30, 0, 0],
+            "0.6": [30, 0, 0]
+          }
+        }
+      }
+    },
+    "animation.player.running": {
+      "loop": true,
+      "animation_length": 0.4,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [8, 0, 0],
+            "0.2": [8, 0, 0],
+            "0.4": [8, 0, 0]
+          },
+          "position": {
+            "0.0": [0, 0, 0],
+            "0.1": [0, 0.4, 0],
+            "0.2": [0, 0, 0],
+            "0.3": [0, 0.4, 0],
+            "0.4": [0, 0, 0]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [-8, 0, 0],
+            "0.4": [-8, 0, 0]
+          }
+        },
+        "leftarm": {
+          "rotation": {
+            "0.0": [-60, 0, 0],
+            "0.2": [40, 0, 0],
+            "0.4": [-60, 0, 0]
+          }
+        },
+        "rightarm": {
+          "rotation": {
+            "0.0": [40, 0, 0],
+            "0.2": [-60, 0, 0],
+            "0.4": [40, 0, 0]
+          }
+        },
+        "leftleg": {
+          "rotation": {
+            "0.0": [-50, 0, 0],
+            "0.2": [50, 0, 0],
+            "0.4": [-50, 0, 0]
+          }
+        },
+        "rightleg": {
+          "rotation": {
+            "0.0": [50, 0, 0],
+            "0.2": [-50, 0, 0],
+            "0.4": [50, 0, 0]
+          }
+        }
+      }
+    },
+    "animation.player.jumping": {
+      "animation_length": 0.5,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [-15, 0, 0],
+            "0.25": [-15, 0, 0],
+            "0.5": [10, 0, 0]
+          },
+          "position": {
+            "0.0": [0, 0, 0],
+            "0.25": [0, 0.8, 0],
+            "0.5": [0, 0, 0]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [15, 0, 0],
+            "0.25": [15, 0, 0],
+            "0.5": [-10, 0, 0]
+          }
+        },
+        "leftarm": {
+          "rotation": {
+            "0.0": [-90, 0, 0],
+            "0.5": [20, 0, 0]
+          }
+        },
+        "rightarm": {
+          "rotation": {
+            "0.0": [-90, 0, 0],
+            "0.5": [20, 0, 0]
+          }
+        },
+        "leftleg": {
+          "rotation": {
+            "0.0": [-60, 0, 0],
+            "0.5": [20, 0, 0]
+          }
+        },
+        "rightleg": {
+          "rotation": {
+            "0.0": [-60, 0, 0],
+            "0.5": [20, 0, 0]
+          }
+        }
+      }
+    },
+    "animation.player.falling": {
+      "loop": true,
+      "animation_length": 1.0,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.5": [2, 0, 0],
+            "1.0": [0, 0, 0]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [-5, 0, 0],
+            "1.0": [-5, 0, 0]
+          }
+        },
+        "leftarm": {
+          "rotation": {
+            "0.0": [-20, 0, -15],
+            "1.0": [-20, 0, -15]
+          }
+        },
+        "rightarm": {
+          "rotation": {
+            "0.0": [-20, 0, 15],
+            "1.0": [-20, 0, 15]
+          }
+        }
+      }
+    },
+    "animation.player.swimming": {
+      "loop": true,
+      "animation_length": 0.8,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [25, 0, 0],
+            "0.4": [30, 0, 0],
+            "0.8": [25, 0, 0]
+          },
+          "position": {
+            "0.0": [0, 0, 0],
+            "0.4": [0, 0.15, 0],
+            "0.8": [0, 0, 0]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [25, 0, 0],
+            "0.8": [25, 0, 0]
+          }
+        },
+        "leftarm": {
+          "rotation": {
+            "0.0": [80, 0, 0],
+            "0.4": [120, 0, 0],
+            "0.8": [80, 0, 0]
+          }
+        },
+        "rightarm": {
+          "rotation": {
+            "0.0": [80, 0, 0],
+            "0.4": [120, 0, 0],
+            "0.8": [80, 0, 0]
+          }
+        }
+      }
+    },
+    "animation.player.sneaking": {
+      "loop": true,
+      "animation_length": 0.8,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [45, 0, 0],
+            "0.4": [48, 0, 0],
+            "0.8": [45, 0, 0]
+          },
+          "position": {
+            "0.0": [0, -0.5, 0],
+            "0.4": [0, -0.4, 0],
+            "0.8": [0, -0.5, 0]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [-40, 0, 0],
+            "0.8": [-40, 0, 0]
+          }
+        },
+        "leftarm": {
+          "rotation": {
+            "0.0": [-10, 0, -10],
+            "0.4": [-15, 0, -15],
+            "0.8": [-10, 0, -10]
+          }
+        },
+        "rightarm": {
+          "rotation": {
+            "0.0": [-10, 0, 10],
+            "0.4": [-15, 0, 15],
+            "0.8": [-10, 0, 10]
+          }
+        }
+      }
+    },
+    "animation.player.gliding": {
+      "loop": true,
+      "animation_length": 1.0,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [45, 0, 0],
+            "0.5": [50, 5, 0],
+            "1.0": [45, 0, 0]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [-30, 0, 0],
+            "0.5": [-35, 0, 0],
+            "1.0": [-30, 0, 0]
+          }
+        },
+        "leftarm": {
+          "rotation": {
+            "0.0": [-120, 0, -30],
+            "1.0": [-120, 0, -30]
+          }
+        },
+        "rightarm": {
+          "rotation": {
+            "0.0": [-120, 0, 30],
+            "1.0": [-120, 0, 30]
+          }
+        }
+      }
+    }
+  }
+}
+EOF
+
+cat > "$RP/animation_controllers/player.animation_controllers.json" <<'EOF'
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.player.move": {
+      "states": {
+        "default": {
+          "blend": [
+            "variable.ground_speed_mo",
+            "query.modified_move_speed"
+          ],
+          "animations": [
+            "animation.player.idle",
+            "animation.player.walking",
+            "animation.player.running"
+          ],
+          "transitions": [
+            {
+              "jumping": "query.is_jumping"
+            },
+            {
+              "falling": "query.is_falling && !query.is_in_water"
+            },
+            {
+              "swimming": "query.is_in_water && query.is_moving"
+            },
+            {
+              "sneaking": "query.is_sneaking"
+            },
+            {
+              "gliding": "query.is_gliding"
+            }
+          ]
+        },
+        "jumping": {
+          "animations": ["animation.player.jumping"],
+          "transitions": [
+            {
+              "falling": "query.is_falling"
+            },
+            {
+              "swimming": "query.is_in_water"
+            },
+            {
+              "default": "!query.is_jumping"
+            }
+          ]
+        },
+        "falling": {
+          "animations": ["animation.player.falling"],
+          "transitions": [
+            {
+              "swimming": "query.is_in_water"
+            },
+            {
+              "default": "!query.is_falling && query.is_on_ground"
+            }
+          ]
+        },
+        "swimming": {
+          "animations": ["animation.player.swimming"],
+          "transitions": [
+            {
+              "falling": "!query.is_in_water && query.is_falling"
+            },
+            {
+              "default": "!query.is_in_water"
+            }
+          ]
+        },
+        "sneaking": {
+          "animations": ["animation.player.sneaking"],
+          "transitions": [
+            {
+              "falling": "query.is_falling && !query.is_sneaking"
+            },
+            {
+              "jumping": "query.is_jumping && !query.is_sneaking"
+            },
+            {
+              "default": "!query.is_sneaking"
+            }
+          ]
+        },
+        "gliding": {
+          "animations": ["animation.player.gliding"],
+          "transitions": [
+            {
+              "falling": "!query.is_gliding && query.is_falling"
+            },
+            {
+              "default": "!query.is_gliding"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.player.look": {
+      "states": {
+        "default": {
+          "animations": [],
+          "blend": [
+            "query.head_y_rotation",
+            "query.head_x_rotation"
+          ]
+        }
+      }
+    },
+    "controller.animation.player.damage": {
+      "states": {
+        "default": {
+          "animations": [],
+          "transitions": [
+            {
+              "hit": "query.is_damage_nearby || query.last_damage_time < 0.5"
+            }
+          ]
+        },
+        "hit": {
+          "animations": [
+            {
+              "animation.player.damage": {
+                "playback_rate": 2.0
+              }
+            }
+          ],
+          "transitions": [
+            {
+              "default": "query.last_damage_time >= 0.5"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+EOF
+
+echo "✍️  Criando arquivos do Behavior Pack..."
+
+cat > "$BP/manifest.json" <<'EOF'
+{
+  "format_version": 2,
+  "header": {
+    "description": "Behavior pack para animações cinematográficas",
+    "name": "Fresh Movies Behavior",
+    "uuid": "d4c3b2a1-f6e5-8a7b-0c9d-2e3f4a5b6c7d",
+    "version": [2, 0, 0],
+    "min_engine_version": [1, 19, 0]
+  },
+  "modules": [
+    {
+      "description": "Comportamentos do Player",
+      "type": "behavior",
+      "uuid": "c6b7a8d9-e0f1-2c3d-4e5f-6a7b8c9d0e1f",
+      "version": [2, 0, 0]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "f0e7d4c3-b2a1-4e6f-8d9c-3a5b1c7e9f2d",
+      "version": [2, 0, 0]
+    }
+  ]
+}
+EOF
+
+cat > "$BP/entities/player.entity.json" <<'EOF'
+{
+  "format_version": "1.12.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "minecraft:player",
+      "is_summonable": false,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "minecraft:swimming": {
+        "minecraft:movement": {
+          "value": 0.1
+        }
+      },
+      "minecraft:sneaking": {
+        "minecraft:movement": {
+          "value": 0.0
+        }
+      }
+    },
+    "components": {
+      "minecraft:player.animation": {
+        "player.model_offset": 0.0,
+        "player.death": "animation.player.death",
+        "player.fall_flying": "animation.player.gliding"
+      },
+      "minecraft:player.observed_properties": {
+        "player.animation": {
+          "player.carrying": "query.has_player_touch_surface || query.is_on_ground"
+        }
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "randomize": [
+          {
+            "weight": 100
+          }
+        ]
+      }
+    }
+  }
+}
+EOF
+
+echo "📦 Compactando em FreshMovies.mcpack..."
+zip -r -q FreshMovies.mcpack "$WORKDIR"
+
+echo ""
+echo "✅ ============================================"
+echo "✅ MCPACK CRIADO COM SUCESSO!"
+echo "✅ ============================================"
+echo ""
+echo "📁 Arquivo gerado: $(pwd)/FreshMovies.mcpack"
+echo ""
+echo "🎮 Como instalar:"
+echo "   1. Localize o arquivo FreshMovies.mcpack"
+echo "   2. Abra com duplo-clique"
+echo "   3. Minecraft Bedrock vai se abrir"
+echo "   4. Clique em 'Importar' ou 'Install'"
+echo "   5. Ative o pack nas configurações globais"
+echo "   6. Crie um novo mundo e aproveite!"
+echo ""
+echo "🎬 Fresh Movies v2.0.0 - Bedrock Edition"
+echo ""
+
+
+FIM DO ARQUIVO
+=============
+
+INSTRUÇÕES PARA USAR:
+
+1. Crie as pastas com a estrutura:
+   📁 resource_pack/
+      └── 📁 animations/
+      └── 📁 animation_controllers/
+   
+   📁 behavior_pack/
+      └── 📁 entities/
+
+2. Copie CADA arquivo JSON para sua pasta correspondente
+
+3. Copie o script create_mcpack.sh para a raiz do projeto
+
+4. Execute:
+   chmod +x create_mcpack.sh
+   ./create_mcpack.sh
+
+5. Pronto! Seu FreshMovies.mcpack estará criado! 🎬
