@@ -110,7 +110,7 @@ No arquivo `player.animation.json`, edite os valores de rotação (em graus):
 ## 🐛 Troubleshooting
 
 | Problema | Solução |
-|----------|----------|
+|----------|---------|
 | Animações não funcionam | Certifique-se de que ambos os packs estão habilitados |
 | Player fica travado | Verifique se o `animation_controller` está correto |
 | Movimento estranho | Reduza os valores de rotação em `player.animation.json` |
